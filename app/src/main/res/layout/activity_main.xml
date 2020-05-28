@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="activity"
+            type="com.fkahraman.databindingexample.MainActivity" />
+        <variable
+            name="userModel"
+            type="com.fkahraman.databindingexample.model.User" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userModel.userName}"
+            android:layout_marginStart="75sp"
+            android:layout_marginEnd="75sp"
+            android:hint="Kullanıcı Adı"
+            android:textSize="23sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorHint"
+            app:layout_constraintBottom_toBottomOf="@+id/txtUserSurname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtUserSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userModel.userSurname}"
+            android:layout_marginStart="75sp"
+            android:layout_marginEnd="75sp"
+            android:hint="Kullanıcı Soyadı"
+            android:textSize="23sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorHint"
+            app:layout_constraintBottom_toBottomOf="@+id/txtUserBirthYear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtUserBirthYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userModel.birthYear}"
+            android:layout_marginStart="75sp"
+            android:layout_marginEnd="75sp"
+            android:hint="Kullanıcı Doğum Yılı"
+            android:textSize="23sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorHint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtUserSurname" />
+
+        <Button
+            android:id="@+id/btn_click"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75sp"
+            android:layout_marginEnd="75sp"
+            android:background="@color/colorWhite"
+            android:text="Kullanıcı Değiştir"
+            android:onClick="@{activity::btnClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUserBirthYear" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
